@@ -65,8 +65,7 @@ def fetch_chat_models():
     if response.status_code == 200:
         ModelsData = response.json()
         for model in ModelsData.get('data'):
-            if "chat" in model['endpoints'][0]:
-                models.append(model['id'])
+            models.append(model['id'])
     else:
         print(f"Failed to fetch chat models. Status code: {response.status_code}")
         
