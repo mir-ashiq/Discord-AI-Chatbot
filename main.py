@@ -52,16 +52,16 @@ current_language = load_current_language()
 instruction = {}
 load_instructions(instruction)
 
-CHIMERA_GPT_KEY = os.getenv('CHIMERA_GPT_KEY')
+CHATANYWHERE_KEY = os.getenv('CHATANYWHERE_KEY')
 
 def fetch_chat_models():
     models = []
     headers = {
-        'Authorization': f'Bearer {CHIMERA_GPT_KEY}',
+        'Authorization': f'Bearer {CHATANYWHERE_KEY}',
         'Content-Type': 'application/json'
     }
 
-    response = requests.get('https://chimeragpt.adventblocks.cc/api/v1/models', headers=headers)
+    response = requests.get('https://api.chatanywhere.com.cn/v1/models', headers=headers)
     if response.status_code == 200:
         ModelsData = response.json()
         for model in ModelsData.get('data'):
