@@ -16,8 +16,8 @@ load_dotenv()
 current_language = load_current_language()
 internet_access = config['INTERNET_ACCESS']
 
-openai.api_key = os.getenv('CHIMERA_GPT_KEY')
-openai.api_base = "https://chimeragpt.adventblocks.cc/api/v1"
+openai.api_key = os.getenv('CHATANYWHERE_KEY')
+openai.api_base = "https://api.chatanywhere.com.cn/v1"
 def sdxl(prompt):
     response = openai.Image.create(
     model="sdxl",
@@ -101,7 +101,7 @@ def generate_gpt4_response(prompt):
             {"role": "system", "name": "admin_user", "content": prompt},
         ]
     response = openai.ChatCompletion.create(
-        model='gpt-4',
+        model='gpt-3.5-turbo', #gpt-4
         messages=messages
     )
     message = response.choices[0].message.content
